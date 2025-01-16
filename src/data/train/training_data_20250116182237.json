@@ -1,0 +1,26 @@
+[
+    {
+        "test_id": "002_Signup Test",
+        "result": "Fail",
+        "execution_time": "0:31:26",
+        "error_logs": "",
+        "stack_trace": "Stack trace example",
+        "environment": {
+            "os": "Linux",
+            "python_version": "3.7",
+            "dependencies": [
+                "dependency1",
+                "dependency2"
+            ]
+        },
+        "configuration": {
+            "config1": "value1",
+            "config2": "value2"
+        },
+        "changeset": {
+            "commit_id": "aeaa34bb-ca5d-42f8-bc01-e6e110288800",
+            "author": "Author Name",
+            "timestamp": "2024-12-21 18:22:37.300183"
+        }
+    }
+]

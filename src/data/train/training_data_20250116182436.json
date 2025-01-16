@@ -1,0 +1,26 @@
+[
+    {
+        "test_id": "002_Signup Test",
+        "result": "Pass",
+        "execution_time": "0:42:46",
+        "error_logs": "",
+        "stack_trace": "Stack trace example",
+        "environment": {
+            "os": "macOS",
+            "python_version": "3.9",
+            "dependencies": [
+                "dependency1",
+                "dependency2"
+            ]
+        },
+        "configuration": {
+            "config1": "value1",
+            "config2": "value2"
+        },
+        "changeset": {
+            "commit_id": "62bfb765-4e54-4a62-aae0-ebabe22d9b51",
+            "author": "Author Name",
+            "timestamp": "2025-01-06 18:24:36.967998"
+        }
+    }
+]

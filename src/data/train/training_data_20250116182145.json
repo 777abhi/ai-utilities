@@ -1,0 +1,26 @@
+[
+    {
+        "test_id": "002_Signup Test",
+        "result": "Pass",
+        "execution_time": "0:05:26",
+        "error_logs": "",
+        "stack_trace": "Stack trace example",
+        "environment": {
+            "os": "Windows",
+            "python_version": "3.8",
+            "dependencies": [
+                "dependency1",
+                "dependency2"
+            ]
+        },
+        "configuration": {
+            "config1": "value1",
+            "config2": "value2"
+        },
+        "changeset": {
+            "commit_id": "748f1dbd-e7bd-4a59-9e72-9aeac0ade525",
+            "author": "Author Name",
+            "timestamp": "2025-01-03 18:21:45.153958"
+        }
+    }
+]
