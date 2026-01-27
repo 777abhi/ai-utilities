@@ -18,6 +18,10 @@ The project consists of two main components:
     -   The model is evaluated on a test set.
     -   **Flaky Identification**: Tests where the model's prediction differs from the actual result in the test set are flagged as "flaky". This approach assumes that if a test's outcome is hard to predict based on its features, it might be unstable or flaky.
 
+3.  **Test Duration Prediction (`src/models/predict_test_duration.py`)**:
+    -   This utility leverages a **Random Forest Regressor** to predict the execution time of tests based on environmental factors (OS, Python version) and test identifiers.
+    -   It helps in identifying tests that are taking longer than expected (potential regressions) and aids in scheduling.
+
 ## Getting Started
 
 ### Prerequisites
@@ -50,6 +54,14 @@ pip install -r requirements.txt
     python src/models/train_and_predict_model.py
     ```
     This will train the Random Forest model, output the classification report, and list the IDs of identified flaky tests.
+
+3.  **Predict Test Duration**:
+    Run the duration prediction script.
+
+    ```bash
+    python src/models/predict_test_duration.py
+    ```
+    This will train a regression model to predict test execution times and display a comparison of actual vs. predicted durations.
 
 ## Project Structure
 
@@ -91,6 +103,14 @@ By reducing the number of flaky tests, the project helps in speeding up the soft
 ## Increased Developer Productivity
 
 By automating the identification and addressing of flaky tests, the project helps in increasing developer productivity. Developers can focus on writing new features and fixing real issues instead of spending time on diagnosing and fixing flaky tests. This leads to increased productivity and faster delivery of software.
+
+## Optimized Resource Allocation
+
+The **Test Duration Predictor** allows for better scheduling of test execution. By knowing the expected duration of tests, CI/CD pipelines can be optimized to run parallel jobs more efficiently, reducing idle time and cloud infrastructure costs.
+
+## Proactive Anomaly Detection
+
+By comparing predicted execution times with actual runtimes, the system can flag performance regressions or infrastructure issues (e.g., a test taking 3x longer than usual) even if the test passes. This enables proactive maintenance before these issues cause timeout failures.
 
 # Potential Use Cases
 
