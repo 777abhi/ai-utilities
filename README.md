@@ -2,9 +2,9 @@
 
 This project aims to predict and identify "flaky" tests in a software test suite using machine learning. Flaky tests are tests that exhibit inconsistent results (pass/fail) despite no changes in the code, often due to timing issues, concurrency problems, or environmental factors.
 
-## How It Works
+## Current Features & How It Works
 
-The project consists of two main components:
+The project consists of several key components that form its core feature set:
 
 1.  **Data Generation (`src/utils/data-prep-training.py`)**:
     -   This script generates synthetic test execution data to simulate a real-world testing environment.
@@ -87,6 +87,38 @@ Here are some suggested incremental features and improvements for the project:
     -   Generate confusion matrices, feature importance plots, and trend analysis graphs to visualize the model's performance and flaky test trends.
 -   **API / CLI**:
     -   Expose the model via a REST API (using Flask or FastAPI) or improve the CLI to accept arguments for input files, model parameters, and output paths.
+
+## Roadmap: Next 20 Incremental Features
+
+Here is a prioritized list of 20 incremental features that can add significant value to the project:
+
+### Data & Input Enhancements
+1.  **Configurable Data Generation**: Add CLI arguments to `data-prep-training.py` to control the number of samples, failure rates, and specific test scenarios.
+2.  **Real Data Ingestion**: Create an adapter to ingest real test results from standard formats like JUnit XML (`.xml`) or Cucumber JSON (`.json`) instead of synthetic data.
+3.  **Time-Series Data Support**: Enhanced data generation to simulate test history over time (e.g., detecting consecutive failures).
+4.  **Enriched Environment Features**: Add more granular environment metrics (e.g., CPU load, memory usage) to the data model.
+5.  **Data Validation Schema**: Implement strict schema validation (using Pydantic or Marshmallow) for input JSON data to ensure consistency.
+
+### Model & Analytics Improvements
+6.  **Flakiness Probability Score**: Update the classifier to output a probability score (0-100%) for flakiness, rather than a binary Pass/Fail prediction.
+7.  **Feature Importance Visualization**: Generate a report or plot showing which factors (OS, Time, Changeset) contribute most to test flakiness.
+8.  **Model Serialization**: Save trained models to disk (`.pkl` or `.joblib`) to allow for inference without retraining every time.
+9.  **XGBoost Integration**: Add an option to switch between Random Forest and XGBoost for potentially better accuracy on structured data.
+10. **Test Duration Outlier Detection**: Implement a statistical method (e.g., Z-score) to automatically flag duration outliers even if the test passes.
+11. **Historical Trend Analysis**: A script to track and visualize the flakiness rate of specific tests over the last N builds.
+12. **Hyperparameter Tuning Script**: A dedicated script to run Grid Search or Random Search to find the optimal model parameters.
+
+### Operational & DevOps
+13. **Interactive CLI**: A command-line interface (using `typer` or `click`) for querying the model (e.g., `predict --test-id 123`).
+14. **REST API Service**: A simple Flask or FastAPI application to serve predictions via HTTP endpoints.
+15. **Docker Containerization**: Add a `Dockerfile` and `docker-compose.yml` to containerize the training and prediction environment.
+16. **HTML Report Generation**: Generate a self-contained HTML dashboard summarizing flaky tests and duration stats.
+17. **Slack/Email Notifications**: A utility to send alerts to a Slack channel or email when high-confidence flaky tests are detected.
+18. **Pre-commit Hook**: A git hook script that warns developers if they are modifying tests known to be flaky.
+
+### Code Quality & Infrastructure
+19. **Unit Test Suite**: Add a proper unit test suite (`pytest`) for the data generator and model training functions.
+20. **Configuration Management**: Move hardcoded values (like test names, base times) into a central `config.yaml` file for easier management.
 
 ---
 
